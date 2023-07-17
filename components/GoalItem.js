@@ -1,11 +1,13 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const GoalItem = ({ itemData }) => {
+const GoalItem = (props) => {
   return (
-    <View style={styles.goalItem}>
-      <Text style={styles.goalText}>{itemData.item.text}</Text>
-    </View>
+    //react-native는 스타일 상속의 개념이 없습니다.
+    <Pressable onPress={props.onDeleteItem}>
+      <View style={styles.goalItem}>
+        <Text style={styles.goalText}>{props.text}</Text>
+      </View>
+    </Pressable>
   );
 };
 
@@ -17,7 +19,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 6,
     backgroundColor: "#5e0acc",
-    color: "white",
   },
   goalText: {
     color: "white",
